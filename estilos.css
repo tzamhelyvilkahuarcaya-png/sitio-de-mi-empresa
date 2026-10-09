@@ -1,567 +1,493 @@
-/* ==========================================
-   RESET Y ESTILOS GENERALES
-   ========================================== */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Evita que el menú superior tape los títulos al hacer clic */
-}
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #e8f1f5;
-    color: #102a43;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    background: #080d1a;
+    color: white;
 }
 
-/* ==========================================
-   ENCABEZADO Y MENÚ DE NAVEGACIÓN
-   ========================================== */
+/* MENÚ */
+
 .encabezado {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #0b2545;
-    border-bottom: 4px solid #d90429;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(8, 13, 26, 0.85);
+    backdrop-filter: blur(10px);
 }
 
 .menu {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 18px 25px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    justify-content: space-between;
 }
 
 .logo {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
+    color: white;
     text-decoration: none;
-    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .menu-links {
-    list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
+    list-style: none;
 }
 
 .menu-links a {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .menu-links a:hover {
-    color: #d90429;
+    color: #4ade80;
 }
 
 .menu-btn {
     display: none;
     background: none;
     border: none;
-    color: #ffffff;
-    font-size: 1.8rem;
+    color: white;
+    font-size: 28px;
     cursor: pointer;
 }
 
-/* ==========================================
-   SECCIÓN HERO / INICIO CON VIDEO DE FONDO
-   ========================================== */
+/* HERO (Video totalmente claro y visible) */
+
 .hero {
-    position: relative;
     height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     overflow: hidden;
-    padding: 0 20px;
 }
 
 .video-fondo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    object-fit: cover;
-}
-
-.capa {
-    display: none;
-}
-
-.hero-contenido {
-    position: relative;
-    z-index: 3;
-    max-width: 800px;
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
-}
-
-.etiqueta {
-    color: #ffffff;
-    background: #d90429;
-    padding: 6px 18px;
-    border-radius: 4px;
-    display: inline-block;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.hero-contenido h1 {
-    font-size: 2.8rem;
-    color: #ffffff;
-    margin: 15px 0 20px 0;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
-}
-
-.hero-contenido p {
-    font-size: 1.15rem;
-    color: #ffffff;
-    background: transparent;
-    padding: 0;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-}
-
-.boton {
-    display: inline-block;
-    background-color: #d90429;
-    color: #ffffff;
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.boton:hover {
-    background-color: #ef233c;
-    transform: translateY(-2px);
-}
-
-/* ==========================================
-   ESTILOS GENERALES DE SECCIONES
-   ========================================== */
-.seccion {
-    padding: 90px 20px 70px 20px;
-}
-
-.contenedor {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.subtitulo {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    color: #d90429;
-    font-weight: bold;
-}
-
-.seccion h2 {
-    font-size: 2.2rem;
-    color: #0b2545;
-    margin-bottom: 15px;
-}
-
-.descripcion {
-    font-size: 1.05rem;
-    color: #243b53;
-    max-width: 650px;
-    margin: 0 auto 50px auto;
-}
-
-/* ==========================================
-   GRILLA DE VIDEOS
-   ========================================== */
-.videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.video-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(11, 37, 69, 0.08);
-    border-top: 4px solid #0b2545;
-    transition: transform 0.3s ease;
-}
-
-.video-card:hover {
-    transform: translateY(-5px);
-}
-
-.video {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-}
-
-.video iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.capa {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 13, 26, 0.25); /* Capa ligera para que el video se vea nítido */
+    z-index: 2;
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 3;
+    max-width: 850px;
+    padding: 20px;
+    text-align: center;
+}
+
+.etiqueta {
+    margin-bottom: 15px;
+    color: #4ade80;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-contenido h1 {
+    margin-bottom: 20px;
+    font-size: 60px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+}
+
+.hero-contenido p:not(.etiqueta) {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* BOTONES */
+
+.boton {
+    display: inline-block;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #e11d48; /* Rojo vibrante del logo */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.4);
+}
+
+.boton:hover {
+    background: #be123c;
+    transform: translateY(-3px);
+}
+
+/* SECCIONES GENERALES */
+
+.seccion {
+    padding: 110px 20px;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.seccion h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 42px;
+}
+
+.subtitulo {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #38bdf8;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.descripcion {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* VIDEOS */
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.video-card {
+    overflow: hidden;
+    background: #111a33;
+    border-radius: 16px;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #38bdf8;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+}
+
+.video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: black;
+}
+
+.video iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
     border: none;
 }
 
 .video-info {
-    padding: 20px;
-    text-align: left;
+    padding: 22px;
 }
 
 .video-info h3 {
-    color: #0b2545;
-    font-size: 1.25rem;
     margin-bottom: 10px;
+    font-size: 21px;
 }
 
 .video-info p {
-    color: #243b53;
-    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
 }
 
-/* ==========================================
-   GRILLA DE SERVICIOS / CONTENIDO
-   ========================================== */
+/* SERVICIOS / CONTENIDO */
+
 .contenido {
-    background-color: #d4e4ed;
+    background: #0c1428;
 }
 
 .contenido-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 45px;
 }
 
 .tarjeta {
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(11, 37, 69, 0.08);
-    border-bottom: 4px solid #0b2545;
-    text-align: left;
-    transition: transform 0.3s ease;
+    display: block;
+    text-decoration: none;
+    padding: 25px;
+    background: #111a33;
+    border-radius: 16px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #e11d48;
 }
 
 .tarjeta:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .imagen-servicio {
     width: 100%;
-    height: 220px;
+    height: 180px;
     object-fit: cover;
-    display: block;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .tarjeta h3 {
-    color: #0b2545;
-    font-size: 1.3rem;
-    margin: 20px 20px 10px 20px;
+    margin: 15px 0 10px;
+    color: white;
+    font-size: 20px;
 }
 
 .tarjeta p {
-    color: #243b53;
-    font-size: 0.95rem;
-    margin: 0 20px 25px 20px;
-    line-height: 1.5;
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 14px;
 }
 
-/* ==========================================
-   SECCIÓN NOSOTROS
-   ========================================== */
+/* NOSOTROS */
+
 .nosotros {
-    background-color: #e8f1f5;
-    padding: 100px 20px;
+    background: #080d1a;
 }
 
 .nosotros-grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     align-items: center;
 }
 
 .nosotros-imagen img {
     width: 100%;
-    height: auto;
-    max-height: 480px;
+    height: 380px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(11, 37, 69, 0.2);
-    border: 3px solid #0b2545;
-    display: block;
-}
-
-.nosotros-texto {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-radius: 16px;
+    border: 3px solid #38bdf8;
 }
 
 .nosotros-texto h2 {
-    color: #0b2545;
-    font-size: 2.6rem;
-    margin-bottom: 25px;
-    text-align: center;
-    border-bottom: 4px solid #d90429;
-    padding-bottom: 8px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 1px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .nosotros-texto > p {
-    color: #102a43;
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    line-height: 1.8;
-    text-align: justify;
-    font-weight: 500;
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 25px;
 }
 
 .nosotros-mision-vision {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 10px;
+    gap: 20px;
 }
 
 .nosotros-mision-vision h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.nosotros-mision-vision div:nth-child(1) h3 {
-    color: #d90429;
-}
-
-.nosotros-mision-vision div:nth-child(2) h3 {
-    color: #0b2545;
+    color: #4ade80;
+    font-size: 18px;
+    margin-bottom: 8px;
 }
 
 .nosotros-mision-vision p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #102a43;
-    font-weight: 500;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-/* ==========================================
-   SECCIÓN CONTACTO (DISTRIBUCIÓN UNIFORME)
-   ========================================== */
+/* CONTACTO Y UBICACIÓN (En azul marino elegante con detalles de color) */
+
 .contacto {
-    background-color: #d4e4ed;
-    padding: 100px 20px;
+    background: #0c1428;
 }
 
-.contacto-grid {
+.contacto-superior-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
     align-items: stretch;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: left;
+    margin-bottom: 30px;
 }
 
-.contacto-columna-izquierda {
+.contacto-info-caja {
+    background: #111a33; /* Azul marino limpio y profesional */
+    padding: 30px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #4ade80; /* Toque verde del letrero */
 }
 
-.contacto-info {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(11, 37, 69, 0.1);
-    border-left: 5px solid #0b2545;
+.contacto-info-caja h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    padding-bottom: 8px;
 }
 
 .info-item {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.info-item:last-child {
-    margin-bottom: 0;
-}
-
-.info-item h3 {
-    color: #0b2545;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+.info-item h4 {
+    color: #38bdf8;
+    font-size: 16px;
+    margin-bottom: 4px;
 }
 
 .info-item p {
-    color: #334e68;
-    font-size: 1rem;
+    color: #cbd5e1;
+    font-size: 15px;
 }
 
 .contacto-link {
-    color: #d90429;
+    color: #4ade80;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+    font-weight: bold;
 }
 
 .contacto-link:hover {
-    color: #0b2545;
     text-decoration: underline;
 }
 
-.contacto-mapa {
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(11, 37, 69, 0.1);
-    border-left: 5px solid #0b2545;
-    flex-grow: 1;
-    display: flex;
-}
-
-.contacto-mapa iframe {
-    width: 100%;
-    height: 100%;
-    min-height: 220px;
-    border-radius: 6px;
-}
-
 .contacto-formulario {
-    background-color: #ffffff;
-    padding: 35px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(11, 37, 69, 0.1);
-    border-right: 5px solid #d90429;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: #111a33; /* Azul marino limpio y profesional */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #e11d48; /* Toque rojo del letrero */
 }
 
 .contacto-formulario h3 {
-    color: #0b2545;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: white;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    padding-bottom: 8px;
 }
 
-.contacto-formulario form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contacto input,
-.contacto textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #bcccdc;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f0f4f8;
-    color: #102a43;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.contacto input:focus,
-.contacto textarea:focus {
-    border-color: #0b2545;
-    background-color: #ffffff;
-}
-
-.contacto button {
-    background-color: #0b2545;
-    color: #ffffff;
-    border: none;
-    padding: 14px;
-    font-size: 1rem;
+.contacto-formulario label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
     font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    color: #38bdf8;
+    font-size: 14px;
+}
+
+.contacto-formulario input,
+.contacto-formulario textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: #080d1a; /* Fondo interno oscuro para los campos */
+    color: white;
+    font-size: 14px;
+}
+
+.contacto-formulario textarea {
+    resize: none;
+    height: 85px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #64748b;
+}
+
+.ubicacion-inferior {
+    background: #111a33; /* Azul marino limpio y profesional */
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-top: 5px solid #38bdf8; /* Toque azul/celeste */
+}
+
+.ubicacion-inferior h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.ubicacion-inferior > p {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.mapa-completo {
     width: 100%;
 }
 
-.contacto button:hover {
-    background-color: #d90429;
-}
+/* FOOTER */
 
-/* ==========================================
-   PIE DE PÁGINA (FOOTER)
-   ========================================== */
 footer {
-    background-color: #0b2545;
-    color: #ffffff;
+    padding: 30px;
+    background: #050811;
+    color: #64748b;
     text-align: center;
-    padding: 25px 20px;
-    font-size: 0.95rem;
 }
 
-/* ==========================================
-   DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
-   ========================================== */
-@media (max-width: 900px) {
-    .nosotros-grid,
-    .contacto-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nosotros-texto h2 {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-contenido h1 {
-        font-size: 2.2rem;
-    }
-}
+/* RESPONSIVE */
 
 @media (max-width: 768px) {
     .menu-links {
-        display: none;
-        flex-direction: column;
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: #0b2545;
-        padding: 20px;
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+        background: #080d1a;
         text-align: center;
-        border-bottom: 3px solid #d90429;
+    }
+
+    .menu-links.activo {
+        display: flex;
     }
 
     .menu-btn {
@@ -569,16 +495,21 @@ footer {
     }
 
     .hero-contenido h1 {
-        font-size: 1.8rem;
+        font-size: 38px;
     }
-    
-    .contacto-info,
-    .contacto-formulario {
-        padding: 20px;
+
+    .videos-grid,
+    .contenido-grid,
+    .nosotros-grid,
+    .contacto-superior-grid {
+        grid-template-columns: 1fr;
     }
 
     .nosotros-mision-vision {
         grid-template-columns: 1fr;
-        gap: 20px;
+    }
+
+    .seccion {
+        padding: 80px 20px;
     }
 }
