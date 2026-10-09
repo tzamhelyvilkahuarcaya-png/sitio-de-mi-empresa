@@ -1,0 +1,3 @@
+function mostrarMenu(){document.querySelector('.menu-links').classList.toggle('activo')}
+document.querySelectorAll('.menu-links a').forEach(enlace=>enlace.addEventListener('click',()=>document.querySelector('.menu-links').classList.remove('activo')))
+function enviarWhatsApp(event){event.preventDefault();const nombre=document.getElementById('nombre').value;const telefono=document.getElementById('telefono').value;const mensaje=document.getElementById('mensaje').value;const texto=`Hola COMPUTEK. Mi nombre es ${nombre}. Mi WhatsApp/teléfono es ${telefono}. Deseo cotizar: ${mensaje}`;const numero='51999999999';window.open(`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`,'_blank')}
